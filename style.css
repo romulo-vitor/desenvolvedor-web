@@ -1,0 +1,92 @@
+/* Animações dos botões */
+.btn-pulse {
+    animation: pulse 2s infinite;
+}
+
+.btn-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.btn-shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Animação do hover */
+.btn-hover {
+    transition: all 0.3s ease;
+    transform: translateY(0);
+}
+
+.btn-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+}
+
+/* Animação do click */
+.btn-hover:active {
+    transform: translateY(0);
+}
+
+/* Estilos do Header */
+header {
+    transition: background-color 0.3s ease;
+}
+
+header.scrolled {
+    background-color: rgba(11, 11, 31, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+/* Animação para links do menu */
+header nav a {
+    position: relative;
+}
+
+header nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #3B82F6;
+    transition: width 0.3s ease;
+}
+
+header nav a:hover::after {
+    width: 100%;
+}
